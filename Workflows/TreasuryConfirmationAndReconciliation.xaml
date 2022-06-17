@@ -23,7 +23,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,762.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>TreasuryConfirmationAndReconciliation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -86,10 +86,10 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="TreasuryConfirmationAndReconciliation" sap:VirtualizedContainerService.HintSize="724,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="1. Check Status column&#xA;2. If Status is &quot;in Progress&quot; then enter into ValidatePaymentInstructions workflow&#xA;3. If Status is Empty then enter into ConfirmationOrBackOut workflow" DisplayName="TreasuryConfirmationAndReconciliation" sap:VirtualizedContainerService.HintSize="694,698" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Default="[in_MasterRow(in_Config(&quot;ColName_PaymentInstruction&quot;).ToString).ToString]" Name="strPaymentInstruction" />
-      <Variable x:TypeArguments="x:String" Default="[in_MasterRow(in_Config(&quot;ColName_Status&quot;).ToString).ToString]" Name="strStatusRead" />
+      <Variable x:TypeArguments="x:String" Default="[in_MasterRow(in_Config(&quot;ColName_Status&quot;).ToString).ToString]" Name="strInProgressStatus" />
       <Variable x:TypeArguments="x:String" Default="[in_MasterRow(in_Config(&quot;ColName_AccomplishedDate&quot;).ToString).ToString]" Name="strDefaultAccomplishedDate" />
       <Variable x:TypeArguments="x:String" Default="[Convert.ToDateTime((strDefaultAccomplishedDate).ToString).ToString(&quot;dd-MMM-yyyy&quot;).ToUpper]" Name="strAccomplishedDate" />
       <Variable x:TypeArguments="x:String" Default="[in_MasterRow(in_Config(&quot;ColName_ProcessType&quot;).ToString).ToString]" Name="strProcessType" />
@@ -100,48 +100,21 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <av:Point x:Key="ShapeLocation">320,0</av:Point>
+        <av:Point x:Key="ShapeLocation">440,20</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">350,74.6666666666667 350,104.666666666667 350.333333333333,104.666666666667 350.333333333333,125</av:PointCollection>
-        <x:Double x:Key="Width">690.33333333333314</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">470,94.6666666666667 470,124.666666666667 405.333333333333,124.666666666667 405.333333333333,195</av:PointCollection>
+        <x:Double x:Key="Width">660</x:Double>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID1">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">400,262</av:Point>
-          <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmationOrBackOut workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="WorkFlows\ConfirmationOrBackOut.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">[in_MasterRow]</InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">[in_dtMain]</InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">[in_dtPaymentInstruction]</InArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">[out_strRequestNumber]</OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_strPaymentInstruction">[strPaymentInstruction]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_strProcessType">[strProcessType]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_strAccomplishedDate">[strAccomplishedDate]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_strDateSentToTreasury">[strDateSentToTreasury]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceAssignedbyAdmin">[strReferenceAssignedbyAdmin]</InArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleOrMultipleRangeOrBackedOutStatusCheck">[out_strStatusCheck]</OutArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:InvokeWorkflowFile>
-    </FlowStep>
     <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">100,262</av:Point>
+          <av:Point x:Key="ShapeLocation">60,303.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -168,6 +141,9 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_strErrorLogMessage">
             <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strErrorLogMessage" />
           </OutArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+          </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -176,16 +152,49 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
     </FlowStep>
-    <FlowDecision x:Name="__ReferenceID2" Condition="[strStatusRead.Contains(&quot;In Progress&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1" True="{x:Reference __ReferenceID0}" False="{x:Reference __ReferenceID1}">
+    <FlowDecision x:Name="__ReferenceID2" Condition="[strInProgressStatus.Contains(in_Config(&quot;Status_InProgress&quot;).ToString)]" DisplayName=" InProgress Status? " sap:VirtualizedContainerService.HintSize="109.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1" True="{x:Reference __ReferenceID0}">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <av:Point x:Key="ShapeLocation">311,125</av:Point>
-          <av:Size x:Key="ShapeSize">78.6666666666667,86.6666666666667</av:Size>
-          <av:PointCollection x:Key="TrueConnector">311,168.333333333333 200,168.333333333333 200,262</av:PointCollection>
-          <av:PointCollection x:Key="FalseConnector">389.666666666667,168.333333333333 500,168.333333333333 500,262</av:PointCollection>
+          <av:Point x:Key="ShapeLocation">351,195</av:Point>
+          <av:Size x:Key="ShapeSize">109.333333333333,86.6666666666667</av:Size>
+          <av:PointCollection x:Key="TrueConnector">351,238.333333333333 160,238.333333333333 160,303.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="FalseConnector">459.666666666667,238.333333333333 560,238.333333333333 560,433.666666666667</av:PointCollection>
+          <x:String x:Key="TrueLabel">InProgress</x:String>
+          <x:String x:Key="FalseLabel">EmptyStatus</x:String>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <FlowDecision.False>
+        <FlowStep x:Name="__ReferenceID1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">460,433.666666666667</av:Point>
+              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmationOrBackOutProcess workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\ConfirmationOrBackOutProcess.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">[in_MasterRow]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">[in_dtMain]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">[in_dtPaymentInstruction]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">[out_strRequestNumber]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strPaymentInstruction">[strPaymentInstruction]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strProcessType">[strProcessType]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strAccomplishedDate">[strAccomplishedDate]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strDateSentToTreasury">[strDateSentToTreasury]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceAssignedbyAdmin">[strReferenceAssignedbyAdmin]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleOrMultipleRangeOrBackedOutStatusCheck">[out_strStatusCheck]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </FlowStep>
+      </FlowDecision.False>
     </FlowDecision>
+    <x:Reference>__ReferenceID1</x:Reference>
   </Flowchart>
 </Activity>

@@ -119,15 +119,14 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">10,471.6</av:Point>
-              <av:Size x:Key="ShapeSize">200,100</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">110,571.6 110,601.6 210,601.6 210,715.6</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">110,540.933333333333 110,570.933333333333 210,570.933333333333 210,715.6</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Success" sap:VirtualizedContainerService.HintSize="200,100" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Success" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -274,16 +273,15 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">230,469.333333333333</av:Point>
-                  <av:Size x:Key="ShapeSize">200,181.333333333333</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">330,650.666666666666 330,680.666666666666 210,680.666666666666 210,715.6</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">330,538.666666666666 330,685.6 210,685.6 210,715.6</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a BussinessRuleException is thrown during the process, the transaction item's status is updated as Failed (Exception Type: Business).&#xA;" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="200,181.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <Sequence DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log business exception with additional logging fields" sap:VirtualizedContainerService.HintSize="334,181.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
@@ -314,30 +312,14 @@
                 </Sequence>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateBotStatus workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Workflows\UpdateBotStatus.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMainData">
-                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_dtMainData" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_BotStatus">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotStatus_BRE&quot;).ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_BusinessException.Message" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ColName_PaymentInstruction&quot;).ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnValue">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strRequestNumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strStatusCheck">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMainData">[io_dtMainData]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_BotStatus">[in_Config("BotStatus_BRE").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">[in_BusinessException.Message]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">[in_Config("ColName_PaymentInstruction").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnValue">[in_TransactionItem]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strRequestNumber">[Nothing]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strStatusCheck">[Nothing]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
@@ -351,11 +333,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">450,467.666666666667</av:Point>
-                  <av:Size x:Key="ShapeSize">200,164.666666666667</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">550,632.333333333334 550,723.666666666667</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">550,537 550,723.666666666667</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="480.666666666667,1476.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="QueueRetry" />
                   <Variable x:TypeArguments="x:String" Name="ScreenshotPath" />
@@ -364,7 +346,6 @@
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message (Consecutive exceptions)" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Consecutive system exception counter is &quot; + io_ConsecutiveSystemExceptions.ToString + &quot;.&quot;]" />
@@ -524,7 +505,7 @@
                       <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotStatus_SE&quot;).ToString" />
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotComments_SE&quot;).ToString" />
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SystemException.Message" />
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">
                       <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ColName_PaymentInstruction&quot;).ToString" />

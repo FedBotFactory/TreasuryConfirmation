@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,458</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>411.333333333333,470</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -83,7 +83,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Process" sap:VirtualizedContainerService.HintSize="421.333333333333,390.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="1. Get Transaction Item from Main data&#xD;&#xA;2. Pass Transaction Item into Process workflow" DisplayName="Treasury Confirmation Process" sap:VirtualizedContainerService.HintSize="421.333333333333,405.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataRow" Name="MasterRow" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtPaymentInstruction" />
@@ -105,27 +105,13 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TreasuryConfirmationAndReconciliation workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\TreasuryConfirmationAndReconciliation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">
-          <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="MasterRow" />
-        </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">
-          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtMain" />
-        </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">
-          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtPaymentInstruction" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_strErrorLogMessage">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strErrorLogMessage" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusCheck">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strStatusCheck" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strRequestNumber" />
-        </OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">[MasterRow]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">[in_dtMain]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">[dtPaymentInstruction]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_strErrorLogMessage">[out_strErrorLogMessage]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusCheck">[out_strStatusCheck]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">[out_strRequestNumber]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

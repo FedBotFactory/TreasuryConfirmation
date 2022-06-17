@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1272.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1180</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -83,7 +83,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="526,1208" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="526,1115.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="1" Name="IntRetry" />
     </Sequence.Variables>
@@ -96,118 +96,14 @@
     <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetNextItem workflow" sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetNextItem.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="io_dt_TransactionData">
-          <mva:VisualBasicReference x:TypeArguments="scg:ICollection(x:String)" ExpressionText="io_dt_TransactionData" />
-        </InOutArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionItem">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_TransactionItem" />
-        </OutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtMainData">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_dtMainData" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="in_TransactionNumber" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_MaxNumOfLoops">
-          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_MaxNumOfLoops" />
-        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="io_dt_TransactionData">[io_dt_TransactionData]</InOutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionItem">[out_TransactionItem]</OutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtMainData">[io_dtMainData]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[in_TransactionNumber]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_MaxNumOfLoops">[io_MaxNumOfLoops]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,256.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <If sap2010:Annotation.AnnotationText="Validate transaction data for no rows in Init State, else add logic to check no rows.&#xA;If data row number is not checked, error will be thrown here." Condition="[in_TransactionNumber&gt;io_dt_TransactionData.Count]" sap:VirtualizedContainerService.HintSize="200,164.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="612,619.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Set TransItem to Nothing" sap:VirtualizedContainerService.HintSize="570,62" sap2010:WorkflowViewState.IdRef="Assign_8">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckStatus workflow" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\CheckStatus.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMaindata">[io_dtMainData]</InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                    <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[in_TransactionNumber]</InOutArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="in_IntRetry">[IntRetry]</InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionItem">[out_TransactionItem]</OutArgument>
-                    <OutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="out_icollTransactionData">[io_dt_TransactionData]</OutArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <If sap2010:Annotation.AnnotationText="Validate transaction data for no rows in Init State, else add logic to check no rows.&#xA;If data row number is not checked, error will be thrown here." Condition="[in_TransactionNumber&gt;io_dt_TransactionData.Count]" sap:VirtualizedContainerService.HintSize="570,271.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Assign DisplayName="Set TransItem to Nothing" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_14">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </If.Then>
-                  <If.Else>
-                    <Assign DisplayName="Get next TransItem" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_13">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[io_dt_TransactionData(in_TransactionNumber-1)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </If.Else>
-                </If>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Assign DisplayName="Get next TransItem" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_9">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[io_dt_TransactionData(in_TransactionNumber-1)]</InArgument>
-                </Assign.Value>
-              </Assign>
-            </If.Else>
-          </If>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
     <If sap2010:Annotation.AnnotationText="This optional step can be used to include more information about a transaction item and it is used mainly for logging and visualization purposes.&#xA;For example, if transaction items are invoices, then out_TransactionID can be the invoice number, out_TransactionField1 can be the invoice date and out_TransactionField2 can be the invoice amount." Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="484,489.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">

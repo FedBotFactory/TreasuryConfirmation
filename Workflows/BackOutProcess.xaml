@@ -6,14 +6,15 @@
     <x:Property Name="in_strBackOutPaymentInstruction" Type="InArgument(x:String)" />
     <x:Property Name="out_strBackOutRequestNumber" Type="OutArgument(x:String)" />
     <x:Property Name="out_strBackedOutStatusCheck" Type="OutArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <this:BackOutProcess.in_strBackOutPaymentInstruction>
     <InArgument x:TypeArguments="x:String" />
   </this:BackOutProcess.in_strBackOutPaymentInstruction>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,712.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,715.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="44">
+    <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System</x:String>
@@ -41,7 +42,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,9 +71,10 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Back Out Process" sap:VirtualizedContainerService.HintSize="720,648" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Back Out Process" sap:VirtualizedContainerService.HintSize="720,650.666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strBackOutReferenceAssignedbyAdmin" />
       <Variable x:TypeArguments="x:String" Name="strBackOutDateSenttoTreasury" />
@@ -86,7 +88,7 @@
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
         <x:Double x:Key="Width">685.99999999999989</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">340,77.1666666666667 340,113.666666666667</av:PointCollection>
-        <x:Double x:Key="Height">612.07999999999993</x:Double>
+        <x:Double x:Key="Height">614.66666666666674</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -106,13 +108,14 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Query run " sap:VirtualizedContainerService.HintSize="376,1102" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Query run " sap:VirtualizedContainerService.HintSize="376,1236.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log - Back Out " sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[in_Config(&quot;Log_BackOutEntry&quot;).ToString]" />
               <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'View'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="34" OffsetY="19" Position="TopLeft" />
@@ -231,10 +234,10 @@
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">240,205.333333333333</av:Point>
               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">340,274.666666666666 340,304.666666666666 330,304.666666666666 330,336.666666666667</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">340,274.666666666666 340,304.666666666666 381,304.666666666666 381,336.666666666667</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Get Text from Fields" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Extract Field Entries" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -302,31 +305,36 @@
             </ui:GetValue>
           </Sequence>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID1" Condition="[strBackOutReferenceAssignedbyAdmin.Contains(in_strReferenceAssignedbyAdmin)  and strBackOutDateSenttoTreasury.Contains(in_strDateSentToTreasury) and strBackOutAccomplishedDate.Contains(in_strAccomplishedDate) and strGetConfirmedStatusText.Contains(&quot;Confirmed&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+            <FlowDecision x:Name="__ReferenceID1" Condition="[strBackOutReferenceAssignedbyAdmin.Contains(in_strReferenceAssignedbyAdmin)  and strBackOutDateSenttoTreasury.Contains(in_strDateSentToTreasury) and strBackOutAccomplishedDate.Contains(in_strAccomplishedDate) and strGetConfirmedStatusText.Contains(&quot;Confirmed&quot;)]" DisplayName=" FieldsMatch? " sap:VirtualizedContainerService.HintSize="80.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <av:Point x:Key="ShapeLocation">290.666666666667,336.666666666667</av:Point>
-                  <av:Size x:Key="ShapeSize">78.6666666666667,86.6666666666667</av:Size>
-                  <av:PointCollection x:Key="FalseConnector">369.333333333334,380 399.333333333334,380 399.333333333334,470 420,470</av:PointCollection>
-                  <av:PointCollection x:Key="TrueConnector">290.666666666667,380 260.666666666667,380 260.666666666667,470 200,470</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">340.666666666667,336.666666666667</av:Point>
+                  <av:Size x:Key="ShapeSize">80.6666666666667,86.6666666666667</av:Size>
+                  <av:PointCollection x:Key="TrueConnector">340.666666666667,380 140,380 140,425.333333333333</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">421.333333333334,380 580,380 580,545.333333333333</av:PointCollection>
+                  <x:String x:Key="TrueLabel">FieldsMatched</x:String>
+                  <x:String x:Key="FalseLabel">FieldsNotMatched</x:String>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
                 <FlowStep x:Name="__ReferenceID2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">0,435.333333333333</av:Point>
+                      <av:Point x:Key="ShapeLocation">40,425.333333333333</av:Point>
                       <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Proceed to BackOut" sap:VirtualizedContainerService.HintSize="476,1940" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Proceed to BackOut Process" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="blnBackOutRequestNumberNoteDisplayed" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Back Out'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Back Out'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -348,9 +356,111 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'internal frame'" sap:VirtualizedContainerService.HintSize="434,1172" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="True">
+                    <ui:UiElementExists DisplayName="Request Number Note Displayed?" Exists="[blnBackOutRequestNumberNoteDisplayed]" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1b1612d3-b4c9-49a8-b4e0-a23ccdb665d0" InformativeScreenshot="0a56f6f8001d2a9238066ed53b1b2c93" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Note Disbursements in Transit concurrent request was &amp;#xD;&amp;#xA;submitted.  *' role='internal frame' /&gt;" TimeoutMS="[cint(in_Config(&quot;TimeOut_BackOutRequestNumberNote&quot;).ToString)]">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If Condition="[not blnBackOutRequestNumberNoteDisplayed]" DisplayName="Back Out " sap:VirtualizedContainerService.HintSize="512.666666666667,836" sap2010:WorkflowViewState.IdRef="If_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Close Application and raise Exception" sap:VirtualizedContainerService.HintSize="476,644" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Close Application -Attach Oracle ERP" sap:VirtualizedContainerService.HintSize="434,490" sap2010:WorkflowViewState.IdRef="WindowScope_6" InformativeScreenshot="cedb41382cc36d6fb0153588efab968f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;">
+                            <ui:WindowScope.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Close Application and Open through Navigator" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition Position="Center">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="81af5e75-4107-4e75-93cf-4a003adbab8c" InformativeScreenshot="49c4c08a445cfa3c61f293ca5c2241b3" Selector="&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:Click>
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Open'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition Position="Center">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82595d34-920b-49bc-acb4-4623a8ae2707" InformativeScreenshot="aef7b126f3dada63fa782c94a16aea7c" Selector="&lt;java name='Navigator - DOL Federal Administrator' role='internal frame' /&gt;&lt;java name='Open alt O' role='push button' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:WindowScope.Body>
+                          </ui:WindowScope>
+                          <Throw DisplayName="Invalid BackOut" Exception="[New BusinessRuleException (in_Config(&quot;BRE_InvalidBackOut&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Extract Request Number - On displaying Note" sap:VirtualizedContainerService.HintSize="512.666666666667,1034.66666666667" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
                       <ui:OnUiElementAppear.Body>
-                        <Sequence DisplayName="Extract Request Number and Back Out Status" sap:VirtualizedContainerService.HintSize="376,996" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence DisplayName="Extract Request Number and Back Out Status" sap:VirtualizedContainerService.HintSize="376,858.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="strBackOutGetRequestNumberText" />
                           </Sequence.Variables>
@@ -360,7 +470,7 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Request Number" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_10">
+                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Extract Request Number Message" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_10">
                             <ui:GetValue.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa8d48a1-f0ec-4be7-8be2-0efa0e1fe002" InformativeScreenshot="b7a9316d2ad6a327575590e5783c1bfd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Note Disbursements in Transit concurrent request was *' role='internal frame' /&gt;&lt;java name='Disbursements in Transit concurrent request was *' role='label' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -375,9 +485,8 @@
                               <OutArgument x:TypeArguments="x:String">[strBackOutGetRequestNumberText]</OutArgument>
                             </ui:GetValue.Value>
                           </ui:GetValue>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Request Number is : &quot; + strBackOutGetRequestNumberText]" />
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[strBackOutGetRequestNumberText.Substring(strBackOutGetRequestNumberText.Length-7)]" />
-                          <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <ui:LogMessage DisplayName="Log - Request Number" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[in_Config(&quot;Log_RequestNumber&quot;).ToString &amp; strBackOutGetRequestNumberText]" />
+                          <Assign DisplayName="Extract Request Number" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[out_strBackOutRequestNumber]</OutArgument>
                             </Assign.To>
@@ -407,7 +516,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get 'Backed Out Status'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_11">
+                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Extract 'Status'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_11">
                             <ui:GetValue.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0803a4f3-5971-4665-a6d0-2c0f973d13f0" InformativeScreenshot="1b1a2739e5a9d2dffe8b0106ad7d0b29" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Status' role='text' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -422,7 +531,7 @@
                               <OutArgument x:TypeArguments="x:String">[out_strBackedOutStatusCheck]</OutArgument>
                             </ui:GetValue.Value>
                           </ui:GetValue>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Back Out Status is &quot;+ out_strBackedOutStatusCheck]" />
+                          <ui:LogMessage DisplayName="Log - Status" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[in_Config(&quot;Log_Status&quot;).ToString + out_strBackedOutStatusCheck]" />
                         </Sequence>
                       </ui:OnUiElementAppear.Body>
                       <ui:OnUiElementAppear.Target>
@@ -442,7 +551,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:OnUiElementAppear>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Oracle ERP" sap:VirtualizedContainerService.HintSize="434,490" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="cedb41382cc36d6fb0153588efab968f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Close Application -Attach Oracle ERP" sap:VirtualizedContainerService.HintSize="512.666666666667,490" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="cedb41382cc36d6fb0153588efab968f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -508,6 +617,7 @@
                         </ActivityAction>
                       </ui:WindowScope.Body>
                     </ui:WindowScope>
+                    <ui:LogMessage DisplayName="Log - Back Out Success" sap:VirtualizedContainerService.HintSize="512.666666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[in_Config(&quot;Log_BackOutEntrySuccess&quot;).ToString]" />
                   </Sequence>
                 </FlowStep>
               </FlowDecision.True>
@@ -515,11 +625,11 @@
                 <FlowStep x:Name="__ReferenceID3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">420,435.333333333333</av:Point>
+                      <av:Point x:Key="ShapeLocation">480,545.333333333333</av:Point>
                       <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Throw Error and Close application" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Throw Error and Close application" sap:VirtualizedContainerService.HintSize="476,644" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -591,7 +701,7 @@
                         </ActivityAction>
                       </ui:WindowScope.Body>
                     </ui:WindowScope>
-                    <Throw Exception="[New BusinessRuleException (&quot;BackOut is not valid&quot;)]" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    <Throw DisplayName="Fields did not match" Exception="[New BusinessRuleException (in_Config(&quot;BRE_FieldsNotMatch&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                   </Sequence>
                 </FlowStep>
               </FlowDecision.False>

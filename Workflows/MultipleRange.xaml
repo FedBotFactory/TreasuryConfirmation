@@ -20,7 +20,7 @@
   <this:MultipleRange.in_Config>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
   </this:MultipleRange.in_Config>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,6724</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,4278.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -96,9 +96,10 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Multiple Range Type" sap:VirtualizedContainerService.HintSize="554.666666666667,6659.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_33">
+  <Sequence sap2010:Annotation.AnnotationText="1. Click 'Check Ranges'&#xA;2. Enter Range Sequence, From and To&#xA;3. When Sequence not available click 'Ok' and 'Confim'&#xA;4. Extract 'Request Number' and 'Status'" DisplayName="Multiple Range Type" sap:VirtualizedContainerService.HintSize="549.333333333333,4214" sap2010:WorkflowViewState.IdRef="Sequence_33">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strGetRequestNumberText" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="IntIndex" />
@@ -106,9 +107,11 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Range Type'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:LogMessage DisplayName="Log - Multiple Range" sap:VirtualizedContainerService.HintSize="507.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="Info" Message="[in_Config(&quot;Log_MultipleRangeEntry&quot;).ToString]" />
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Range Type'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -130,7 +133,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'label  Multiple'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'label  Multiple'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -152,7 +155,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Check Ranges'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Check Ranges'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -174,7 +177,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Assign DisplayName="Assign Index Number" sap:VirtualizedContainerService.HintSize="512.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_48">
+    <Assign DisplayName="Assign Index Number" sap:VirtualizedContainerService.HintSize="507.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_48">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[IntIndex]</OutArgument>
       </Assign.To>
@@ -182,13 +185,13 @@
         <InArgument x:TypeArguments="x:Int32">1</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dtPaymentInstruction]" DisplayName="For Each row in dtMain datatable" sap:VirtualizedContainerService.HintSize="512.666666666667,1834" sap2010:WorkflowViewState.IdRef="ForEachRow_10">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dtPaymentInstruction]" DisplayName="For Each row in dtMain datatable" sap:VirtualizedContainerService.HintSize="507.333333333333,1026" sap2010:WorkflowViewState.IdRef="ForEachRow_10">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Enter Range in Multiple Range Type" sap:VirtualizedContainerService.HintSize="473.333333333333,1715.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <Sequence DisplayName="Enter Fields" sap:VirtualizedContainerService.HintSize="473.333333333333,907.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strRangeSequence" />
               <Variable x:TypeArguments="x:String" Name="strMultipleRangeFrom" />
@@ -239,11 +242,6 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_42" Level="Info" Message="[&quot;Range Sequence is :&quot; + strRangeSequence]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_43" Level="Info" Message="[&quot;From is  : &quot; + strMultipleRangeFrom]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_44" Level="Info" Message="[&quot;To is : &quot; + strMultipleRangeTo]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_51" Level="Info" Message="[&quot;intindex is &quot; + IntIndex.ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Info" Message="[&quot;Row number is : &quot; + strIdx]" />
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Range Sequence" sap:VirtualizedContainerService.HintSize="431.333333333333,134" sap2010:WorkflowViewState.IdRef="TypeInto_36" Text="[strRangeSequence+ &quot;[k(tab)]&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b3bf22e4-f8aa-4a4e-b14f-618766f2ebcf" InformativeScreenshot="a6945e6cb4075bd179311cc718bcdef1" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Check Ranges' role='internal frame' /&gt;&lt;java idx='&quot;+strIdx+&quot;' name='Range &amp;#xD;&amp;#xA;Sequence Required' role='text' /&gt;&quot;]">
@@ -288,7 +286,6 @@
                 <InArgument x:TypeArguments="x:Int32">[IntIndex+1]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_46" Level="Info" Message="[&quot;Row number with added index is &quot; + IntIndex.ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
@@ -299,7 +296,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok afte Sequence entry" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Ok' after Sequence entry" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -321,7 +318,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Confirm" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_24" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Confirm'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_24" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -343,29 +340,17 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:UiElementExists DisplayName="Element Exists" Exists="[in_blnNotedisplayed]" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-      <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9f86c40b-dd0b-4cb5-a396-b1a7424295d6" InformativeScreenshot="7a46bd44850c5f0b761178f17d7a63f6" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Note Please do not close the the browser or form. Disbursements in Transit Program is about to get triggered' role='internal frame' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:UiElementExists.Target>
-    </ui:UiElementExists>
-    <If Condition="[not in_blnNotedisplayed]" sap:VirtualizedContainerService.HintSize="512.666666666667,634.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Then>
-        <Sequence DisplayName="Unconfirmed Status Retrieval - Multiple Range" sap:VirtualizedContainerService.HintSize="376,440" sap2010:WorkflowViewState.IdRef="Sequence_37">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="507.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_42">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Remove the screenshot and replace it with Unconfirmed" DisplayName="Get 'Status Text'" sap:VirtualizedContainerService.HintSize="334,151.333333333333" sap2010:WorkflowViewState.IdRef="GetValue_7">
-            <ui:GetValue.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e39975c9-6381-4a55-bd65-d51c21f55481" InformativeScreenshot="8ccb533c40e526bf8662105b9c4ea2cc" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Status' role='text' /&gt;">
+          <ui:UiElementExists DisplayName="Note displayed?" Exists="[in_blnNotedisplayed]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9f86c40b-dd0b-4cb5-a396-b1a7424295d6" InformativeScreenshot="7a46bd44850c5f0b761178f17d7a63f6" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Note Please do not close the the browser or form. Disbursements in Transit Program is about to get triggered' role='internal frame' /&gt;">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -373,33 +358,91 @@
                   <InArgument x:TypeArguments="ui:WaitForReady" />
                 </ui:Target.WaitForReady>
               </ui:Target>
-            </ui:GetValue.Target>
-            <ui:GetValue.Value>
-              <OutArgument x:TypeArguments="x:String">[out_strMultipleRangeStatusCheck]</OutArgument>
-            </ui:GetValue.Value>
+            </ui:UiElementExists.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:GetValue>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_52" Level="Info" Message="[&quot;Note element not displayed and the status is : &quot; + out_strMultipleRangeStatusCheck]" />
-          <Throw Exception="[New BusinessRuleException]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          </ui:UiElementExists>
         </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_38">
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="507.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="526,638" sap2010:WorkflowViewState.IdRef="Sequence_43">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[not in_blnNotedisplayed]" DisplayName="If Note not displayed" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName=" Extract Status - Multiple Range" sap:VirtualizedContainerService.HintSize="376,394.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Get 'Status Text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                  <ui:GetValue.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e39975c9-6381-4a55-bd65-d51c21f55481" InformativeScreenshot="8ccb533c40e526bf8662105b9c4ea2cc" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Status' role='text' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetValue.Target>
+                  <ui:GetValue.Value>
+                    <OutArgument x:TypeArguments="x:String">[out_strMultipleRangeStatusCheck]</OutArgument>
+                  </ui:GetValue.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:GetValue>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_52" Level="Info" Message="[&quot;Note element not displayed and the status is : &quot; + out_strMultipleRangeStatusCheck]" />
+                <Throw Exception="[New BusinessRuleException]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_38">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
         </Sequence>
-      </If.Else>
-    </If>
-    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Note Element Appear" sap:VirtualizedContainerService.HintSize="512.666666666667,282" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Displaying 'Note'" sap:VirtualizedContainerService.HintSize="507.333333333333,282" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
       <ui:OnUiElementAppear.Body>
-        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click OK " sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_25" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'OK' " sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_25" KeyModifiers="None" MouseButton="BTN_LEFT">
           <ui:Click.CursorPosition>
             <ui:CursorPosition Position="Center">
               <ui:CursorPosition.OffsetX>
@@ -433,7 +476,7 @@
         </ui:Target>
       </ui:OnUiElementAppear.Target>
     </ui:OnUiElementAppear>
-    <ui:UiElementExists DisplayName="Error Displayed?" Exists="[in_blnErrorAccountEntry]" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+    <ui:UiElementExists DisplayName="Error Displayed?" Exists="[in_blnErrorAccountEntry]" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="03945900-0991-4bd9-ab4d-30ef73bbe68a" InformativeScreenshot="f025dbadaa53a8ca3bb78ddef8dea64a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Error The accounting entries for this payment instruction need to be created in payables before the Treasury Confirmation process can be submitted.' role='internal frame' /&gt;" TimeoutMS="5">
           <ui:Target.WaitForReady>
@@ -442,9 +485,15 @@
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[in_blnErrorAccountEntry]" sap:VirtualizedContainerService.HintSize="512.666666666667,1068.66666666667" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[in_blnErrorAccountEntry]" DisplayName="Account Entry Error displayed?" sap:VirtualizedContainerService.HintSize="507.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,874" sap2010:WorkflowViewState.IdRef="Sequence_41">
+        <Sequence DisplayName="Close Application and raise Exception" sap:VirtualizedContainerService.HintSize="476,874" sap2010:WorkflowViewState.IdRef="Sequence_41">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -494,7 +543,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Forms" sap:VirtualizedContainerService.HintSize="434,282" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_3" RepeatForever="False">
+          <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On diplaying 'Forms'" sap:VirtualizedContainerService.HintSize="434,282" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_3" RepeatForever="False">
             <ui:OnUiElementAppear.Body>
               <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'No'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_32" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
@@ -552,7 +601,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <Throw DisplayName="Account Entries need to be created" Exception="[New BusinessRuleException (&quot;Account Entries need to be created&quot;)]" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+          <Throw DisplayName="Account Entries need to be created" Exception="[New BusinessRuleException (in_Config(&quot;BRE_AccountEntryError&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
         </Sequence>
       </If.Then>
       <If.Else>
@@ -565,16 +614,16 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'internal frame'" sap:VirtualizedContainerService.HintSize="512.666666666667,891.333333333333" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
+    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Extract Request Number - On displaying Note" sap:VirtualizedContainerService.HintSize="507.333333333333,756.666666666667" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
       <ui:OnUiElementAppear.Body>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,715.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_36">
+        <Sequence DisplayName="Extract Request Number" sap:VirtualizedContainerService.HintSize="376,580.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_36">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Request Number" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Extract Request Number Message" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
             <ui:GetValue.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa8d48a1-f0ec-4be7-8be2-0efa0e1fe002" InformativeScreenshot="b7a9316d2ad6a327575590e5783c1bfd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Note Disbursements in Transit concurrent request was *' role='internal frame' /&gt;&lt;java name='Disbursements in Transit concurrent request was *' role='label' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -589,9 +638,8 @@
               <OutArgument x:TypeArguments="x:String">[strGetRequestNumberText]</OutArgument>
             </ui:GetValue.Value>
           </ui:GetValue>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[&quot;Request Number is : &quot; + strGetRequestNumberText]" />
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[strGetRequestNumberText.Substring(strGetRequestNumberText.Length-7)]" />
-          <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_45">
+          <ui:LogMessage DisplayName="Log - Request Number" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[in_Config(&quot;Log_RequestNumber&quot;).ToString &amp; strGetRequestNumberText.Substring(strGetRequestNumberText.Length-7)]" />
+          <Assign DisplayName="Extract Request Number" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_45">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_strMultipleRangeRequestNumber]</OutArgument>
             </Assign.To>
@@ -640,7 +688,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OnUiElementAppear>
-    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get 'Status Text'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Extract 'Status'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
       <ui:GetValue.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e39975c9-6381-4a55-bd65-d51c21f55481" InformativeScreenshot="8ccb533c40e526bf8662105b9c4ea2cc" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java name='Status' role='text' /&gt;">
           <ui:Target.TimeoutMS>
@@ -655,50 +703,79 @@
         <OutArgument x:TypeArguments="x:String">[out_strMultipleRangeStatusCheck]</OutArgument>
       </ui:GetValue.Value>
     </ui:GetValue>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[&quot;Status is :&quot;+ out_strMultipleRangeStatusCheck]" />
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_28" KeyModifiers="None" MouseButton="BTN_LEFT">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition Position="Center">
-          <ui:CursorPosition.OffsetX>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetX>
-          <ui:CursorPosition.OffsetY>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetY>
-        </ui:CursorPosition>
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="56bf3e1b-beae-4d66-9f7c-96d328d9e479" InformativeScreenshot="49c4c08a445cfa3c61f293ca5c2241b3" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:Click.Target>
-    </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Open'" sap:VirtualizedContainerService.HintSize="512.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_29" KeyModifiers="None" MouseButton="BTN_LEFT">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition Position="Center">
-          <ui:CursorPosition.OffsetX>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetX>
-          <ui:CursorPosition.OffsetY>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetY>
-        </ui:CursorPosition>
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d4dbc661-8f5f-469c-a4a3-0e23f333ea95" InformativeScreenshot="aef7b126f3dada63fa782c94a16aea7c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Navigator - DOL Federal Administrator' role='internal frame' /&gt;&lt;java name='Open alt O' role='push button' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:Click.Target>
-    </ui:Click>
+    <ui:LogMessage DisplayName="Log - Status" sap:VirtualizedContainerService.HintSize="507.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[in_Config(&quot;Log_Status&quot;).ToString+ out_strMultipleRangeStatusCheck]" />
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Close Application -Attach Oracle ERP" sap:VirtualizedContainerService.HintSize="507.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="cedb41382cc36d6fb0153588efab968f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Close Application and Open through Navigator" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_46">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_34" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="81af5e75-4107-4e75-93cf-4a003adbab8c" InformativeScreenshot="49c4c08a445cfa3c61f293ca5c2241b3" Selector="&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Open'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_35" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82595d34-920b-49bc-acb4-4623a8ae2707" InformativeScreenshot="aef7b126f3dada63fa782c94a16aea7c" Selector="&lt;java name='Navigator - DOL Federal Administrator' role='internal frame' /&gt;&lt;java name='Open alt O' role='push button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WindowScope>
+    <ui:LogMessage DisplayName="Log - Multiple Range Success" sap:VirtualizedContainerService.HintSize="507.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_54" Level="Info" Message="[in_Config(&quot;Log_MultipleRangeEntrySuccess&quot;).ToString]" />
   </Sequence>
 </Activity>

@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ReopenTCPNavigator" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1150,993.333333333333" sap2010:WorkflowViewState.IdRef="ReopenTCPNavigator_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ReopenTCPNavigator" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1262.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ReopenTCPNavigator_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -52,29 +60,36 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ReopenTCPNavigator" sap:VirtualizedContainerService.HintSize="844,928.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Reopen Treasury Confirmation Navigator" sap:VirtualizedContainerService.HintSize="844,1467.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'label Navigator'" sap:VirtualizedContainerService.HintSize="802,836.666666666667" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1">
+    <ui:LogMessage DisplayName="Log - Reopen Treasury Confirmation" sap:VirtualizedContainerService.HintSize="802,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_Config(&quot;Log_ReOpenTreasuryConfirmation&quot;).ToString]" />
+    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Navigator displayed?" sap:VirtualizedContainerService.HintSize="802,1106" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
       <ui:OnUiElementAppear.Body>
-        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="768,660.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Close Treasury Confirmation and Open Navigator" sap:VirtualizedContainerService.HintSize="768,930" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:AnchorBase AnchorPosition="Left" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="726,198" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
+          <ui:AnchorBase AnchorPosition="Left" DisplayName="Close Treasury Confirmation" sap:VirtualizedContainerService.HintSize="726,198" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
             <ui:AnchorBase.Action>
               <ActivityAction x:TypeArguments="ui:Anchor">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
                 </ActivityAction.Argument>
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Action Click 'push button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Close 'Treasury Confirmation' window" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition OffsetX="10" OffsetY="13" Position="TopLeft" />
                   </ui:Click.CursorPosition>
@@ -92,7 +107,7 @@
               </ActivityAction>
             </ui:AnchorBase.Action>
             <ui:AnchorBase.AnchorProvider>
-              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Anchor Find Element 'panel'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Attach Anchor" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
                 <ui:WaitUiElementAppear.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4d34e7b6-e4f0-4fe5-8075-a43a8ea30469" InformativeScreenshot="158ff951f39c646fa5d44caf66d55c91" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Treasury Confirmation and Reconciliation ( DOL Federal Administrator )' role='internal frame' /&gt;&lt;java cls='CaptionComp' role='panel' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -112,7 +127,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:AnchorBase>
-          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'list  Function List'" sap:VirtualizedContainerService.HintSize="726,52.6666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="+  Confirm">
+          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select 'Confirm'" sap:VirtualizedContainerService.HintSize="726,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="+  Confirm">
             <ui:SelectItem.Items>
               <scg:List x:TypeArguments="x:String" Capacity="16">
                 <x:String xml:space="preserve">    Notifications Summary</x:String>
@@ -143,12 +158,12 @@
             </ui:SelectItem.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:SelectItem>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="726,52.6666666666667" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Push'" sap:VirtualizedContainerService.HintSize="726,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
             <ui:Click.CursorPosition>
               <ui:CursorPosition OffsetX="8" OffsetY="27" Position="TopLeft" />
             </ui:Click.CursorPosition>
@@ -164,12 +179,12 @@
             </ui:Click.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:Click>
-          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'list  Function List'" sap:VirtualizedContainerService.HintSize="726,52.6666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="       Confirm">
+          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select 'Confirm'" sap:VirtualizedContainerService.HintSize="726,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="       Confirm">
             <ui:SelectItem.Items>
               <scg:List x:TypeArguments="x:String" Capacity="16">
                 <x:String xml:space="preserve">    Notifications Summary</x:String>
@@ -202,12 +217,12 @@
             </ui:SelectItem.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:SelectItem>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Open alt O'" sap:VirtualizedContainerService.HintSize="726,52.6666666666667" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Open'" sap:VirtualizedContainerService.HintSize="726,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
             <ui:Click.CursorPosition>
               <ui:CursorPosition OffsetX="113" OffsetY="19" Position="TopLeft" />
             </ui:Click.CursorPosition>
@@ -223,16 +238,13 @@
             </ui:Click.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:Click>
         </Sequence>
       </ui:OnUiElementAppear.Body>
-      <ui:OnUiElementAppear.RepeatForever>
-        <Literal x:TypeArguments="x:Boolean" />
-      </ui:OnUiElementAppear.RepeatForever>
       <ui:OnUiElementAppear.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="00c5af93-40d0-4069-b37a-6acf5a2a7b43" InformativeScreenshot="fec3693fe525881f9ca1cd97d094a4d8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Navigator - DOL Federal Administrator' role='internal frame' /&gt;&lt;java name='Navigator - DOL Federal Administrator' role='label' /&gt;">
           <ui:Target.TimeoutMS>
@@ -244,5 +256,6 @@
         </ui:Target>
       </ui:OnUiElementAppear.Target>
     </ui:OnUiElementAppear>
+    <ui:LogMessage DisplayName="Log - Reopen Treasury Confirmation Success" sap:VirtualizedContainerService.HintSize="802,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;Log_ReOpenTreasuryConfirmationSuccess&quot;).ToString]" />
   </Sequence>
 </Activity>
