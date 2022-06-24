@@ -7,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,3128</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1150,2840</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ViewLogs_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="32">
+    <scg:List x:TypeArguments="x:String" Capacity="36">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -43,10 +43,14 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -73,9 +77,13 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="1. Open Requests window&#xA;2. Enter Request Number in Specific Requests&#xA;3. Extract 'Error in' Log message" DisplayName="ViewLogs" sap:VirtualizedContainerService.HintSize="628,3063.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="1. Open Requests window&#xA;2. Enter Request Number in Specific Requests&#xA;3. Extract 'Error in' Log message" DisplayName="ViewLogs" sap:VirtualizedContainerService.HintSize="625.333333333333,2775.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strErrorin" />
     </Sequence.Variables>
@@ -85,14 +93,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log - View Logs" sap:VirtualizedContainerService.HintSize="586,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[in_Config(&quot;Log_ViewLogsEntry&quot;).ToString]" />
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach - Oracle ERP Window" sap:VirtualizedContainerService.HintSize="586,2640" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="980a5df720d75513390f61ee64640889" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;">
+    <ui:LogMessage DisplayName="Log - View Logs" sap:VirtualizedContainerService.HintSize="583.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[in_Config(&quot;Log_ViewLogsEntry&quot;).ToString]" />
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach - Oracle ERP Window" sap:VirtualizedContainerService.HintSize="583.333333333333,2352" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="980a5df720d75513390f61ee64640889" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="'Log Messages' Retrieval by entering Request Number" sap:VirtualizedContainerService.HintSize="552,2494" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="'Log Messages' Retrieval by entering Request Number" sap:VirtualizedContainerService.HintSize="549.333333333333,2206" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,7 +108,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'View'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'View'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="31" OffsetY="21" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -115,7 +123,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Requests'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Requests'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="73" OffsetY="12" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -130,7 +138,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Select 'Specific Requests'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Select 'Specific Requests'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -152,7 +160,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'Request ID'" sap:VirtualizedContainerService.HintSize="510,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_strRequestNumber]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'Request ID'" sap:VirtualizedContainerService.HintSize="507.333333333333,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_strRequestNumber]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d8d08324-a965-4308-821c-e6b2cca082d0" InformativeScreenshot="5800a224d7f19a640050a0dbef0a7fde" Selector="&lt;java name='Find Requests' role='internal frame' /&gt;&lt;java name='Request ID' role='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -164,7 +172,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Find'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Find'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="65" OffsetY="23" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -179,7 +187,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'View Log'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'View Log'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="137" OffsetY="9" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -194,23 +202,26 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach 'Edge' browser" sap:VirtualizedContainerService.HintSize="510,1060" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7e54c5416403a5c8dd629ebb68bc3d7b" Selector="&lt;html app='msedge.exe' url='https://sandbox.dataparticles.com:4443/OA_CGI/FNDWRR.exe?temp_id=*' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach 'Edge' browser" sap:VirtualizedContainerService.HintSize="507.333333333333,772" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7e54c5416403a5c8dd629ebb68bc3d7b" Selector="&lt;html app='msedge.exe' url='https://sandbox.dataparticles.com:4443/OA_CGI/FNDWRR.exe?temp_id=*' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Retrieve Logs" sap:VirtualizedContainerService.HintSize="476,914" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Retrieve Logs" sap:VirtualizedContainerService.HintSize="473.333333333333,626" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="strViewLog" />
                       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="strViewLogMatch" />
+                      <Variable x:TypeArguments="x:Int32" Name="intStartIdx" />
+                      <Variable x:TypeArguments="x:Int32" Name="intEndIdx" />
+                      <Variable x:TypeArguments="x:Int32" Name="intEndIdxLength" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Extract Log text" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Extract Log text" sap:VirtualizedContainerService.HintSize="431.333333333333,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
                       <ui:GetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2f597233-1b91-43ff-818b-4be949959047" InformativeScreenshot="8a0aa64f638f8628f0df37fc89055c99" Selector="&lt;webctrl tag='PRE' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -225,46 +236,51 @@
                         <OutArgument x:TypeArguments="x:String">[strViewLog]</OutArgument>
                       </ui:GetValue.Value>
                     </ui:GetValue>
-                    <ui:Matches BuilderPattern="(?:Error in)+(.+)" sap:VirtualizedContainerService.HintSize="434,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[strViewLog]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;Error in&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;ANYTHING&quot;,&quot;OperationName&quot;:&quot;Anything&quot;,&quot;OperationValue&quot;:&quot;.&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[in_Config(&quot;ViewLogMatchPattern&quot;).ToString]" RegexOption="IgnoreCase, Compiled" Result="[strViewLogMatch]" />
-                    <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each ErrorIn Text in ViewLogMatch" sap:VirtualizedContainerService.HintSize="434,380.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[strViewLogMatch]">
-                      <ui:ForEach.Body>
-                        <ActivityAction x:TypeArguments="str:Match">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="str:Match" Name="ErrorInText" />
-                          </ActivityAction.Argument>
-                          <Sequence DisplayName="Retrieve 'Error in' from Logs" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="Assign 'Error in'" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[strErrorin]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[(ErrorInText.ToString).Trim]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign DisplayName="Assign ErrorLogMessage" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[out_strErrorLogMessage]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[out_strErrorLogMessage+Environment.NewLine+strErrorin]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </Sequence>
-                        </ActivityAction>
-                      </ui:ForEach.Body>
-                    </ui:ForEach>
-                    <ui:LogMessage DisplayName="Log - LogErrorMessage" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[in_Config(&quot;Log_LogErrorMessage&quot;).ToString+out_strErrorLogMessage]" />
-                    <ui:CloseTab Browser="{x:Null}" DisplayName="Close Opened Edge Browser tab" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431.333333333333,191.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Int32">[intStartIdx]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Int32">[strViewLog.IndexOf(in_Config("ViewLog_StartIndex").ToString)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Int32">[intEndIdx]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Int32">[strViewLog.IndexOf(in_Config("ViewLog_EndIndex").ToString)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Int32">[intEndIdxLength]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Int32">[(in_Config("ViewLog_EndIndex").ToString).Length]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[out_strErrorLogMessage]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[strViewLog.Substring(intStartIdx, ((intEndIdx-intStartIdx)+intEndIdxLength))]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <ui:LogMessage DisplayName="Log - LogErrorMessage" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[in_Config(&quot;Log_LogErrorMessage&quot;).ToString+Environment.NewLine + out_strErrorLogMessage]" />
+                    <ui:CloseTab Browser="{x:Null}" DisplayName="Close Opened Edge Browser tab" sap:VirtualizedContainerService.HintSize="431.333333333333,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
                   </Sequence>
                 </ActivityAction>
               </ui:BrowserScope.Body>
             </ui:BrowserScope>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close' - Request window" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close' - Request window" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -286,7 +302,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close' - Treasury Confirmation window" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Close' - Treasury Confirmation window" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -308,7 +324,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Open'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Open'" sap:VirtualizedContainerService.HintSize="507.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -334,6 +350,6 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:LogMessage DisplayName="Log View Logs Success" sap:VirtualizedContainerService.HintSize="586,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[in_Config(&quot;Log_ViewLogsEntrySuccess&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log View Logs Success" sap:VirtualizedContainerService.HintSize="583.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[in_Config(&quot;Log_ViewLogsEntrySuccess&quot;).ToString]" />
   </Sequence>
 </Activity>
