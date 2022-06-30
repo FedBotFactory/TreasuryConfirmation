@@ -4,7 +4,7 @@
     <x:Property Name="in_strOutputFilePath" Type="InArgument(x:String)" />
     <x:Property Name="io_dtMainData" Type="InArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,2771.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1150,2771.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -256,7 +256,7 @@
           </Sequence>
         </If.Else>
       </If>
-      <ui:LogMessage DisplayName="Success - ValidateInvoices" sap:VirtualizedContainerService.HintSize="518,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;Log_ValidateInputFileSuccess&quot;).ToString]" />
+      <ui:LogMessage DisplayName="Success - ValidateInputFile" sap:VirtualizedContainerService.HintSize="518,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;Log_ValidateInputFileSuccess&quot;).ToString]" />
     </Sequence>
   </Sequence>
 </Activity>

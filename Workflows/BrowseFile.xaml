@@ -82,7 +82,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Display UIPath Form to user to select Input file -Invoices" DisplayName="BrowseFile" sap:VirtualizedContainerService.HintSize="526,926" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Display UIPath Form to user to select Input file" DisplayName="BrowseFile" sap:VirtualizedContainerService.HintSize="526,926" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFormFields" />
       <Variable x:TypeArguments="njl:JObject" Name="jObjFormFields" />
@@ -115,7 +115,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Throw DisplayName="Throw Error - Form Closed" Exception="[new SystemException(in_Config(&quot;SE_ErrMsg_FormManuallyClosed&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+        <Throw DisplayName="Throw Error - Form Closed" Exception="[New SystemException(in_Config(&quot;SE_ErrMsg_FormManuallyClosed&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
       </If.Then>
       <If.Else>
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
