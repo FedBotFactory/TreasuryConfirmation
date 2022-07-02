@@ -30,7 +30,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,746</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>860,744.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ConfirmationOrBackOutProcess_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +90,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="1. Check Process Type&#xA;2. Select workflow based on Process Type" DisplayName="ConfirmationOrBackOutProcess" sap:VirtualizedContainerService.HintSize="634,681.333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="1. Check Process Type&#xA;2. Select workflow based on Process Type" DisplayName="ConfirmationOrBackOutProcess" sap:VirtualizedContainerService.HintSize="634,680" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -120,19 +120,35 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">20,353.666666666667</av:Point>
-              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+              <av:Size x:Key="ShapeSize">200,52</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmationProcess workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ConfirmationProcess.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmationProcess workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ConfirmationProcess.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strPaymentInstruction">[in_strPaymentInstruction]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strAccomplishedDate">[in_strAccomplishedDate]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">[out_strRequestNumber]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleOrMultipleRangeOrBackedOutStatusCheck">[out_strSingleOrMultipleRangeOrBackedOutStatusCheck]</OutArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">[in_dtMain]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">[in_dtPaymentInstruction]</InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">[in_MasterRow]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strPaymentInstruction">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strPaymentInstruction" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strAccomplishedDate">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strAccomplishedDate" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strRequestNumber" />
+              </OutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtMain" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtPaymentInstruction" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_MasterRow" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleOrMultipleRangeStatusCheck">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strSingleOrMultipleRangeOrBackedOutStatusCheck" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -147,10 +163,10 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">380,473.666666666667</av:Point>
-              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+              <av:Size x:Key="ShapeSize">200,52</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke BackOutProcess workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BackOutProcess.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke BackOutProcess workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BackOutProcess.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceAssignedbyAdmin">
                 <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strReferenceAssignedbyAdmin" />

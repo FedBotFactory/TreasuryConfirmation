@@ -1,15 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ConfirmationProcess" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ConfirmationProcess" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_strPaymentInstruction" Type="InArgument(x:String)" />
     <x:Property Name="in_strAccomplishedDate" Type="InArgument(x:String)" />
     <x:Property Name="out_strRequestNumber" Type="OutArgument(x:String)" />
-    <x:Property Name="out_strSingleOrMultipleRangeOrBackedOutStatusCheck" Type="OutArgument(x:String)" />
     <x:Property Name="in_dtMain" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_dtPaymentInstruction" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_MasterRow" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="out_strSingleOrMultipleRangeStatusCheck" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1666.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>860,1666.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -291,29 +291,55 @@
       <If.Then>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke MultipleRange workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="WorkFlows\MultipleRange.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_strMultipleRangeRequestNumber">[out_strRequestNumber]</OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_strMultipleRangeStatusCheck">[out_strSingleOrMultipleRangeOrBackedOutStatusCheck]</OutArgument>
-            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">[in_dtMain]</InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnNotedisplayed">[blnNotedisplayed]</InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnErrorAccountEntry">[blnErrorAccountEntry]</InArgument>
-            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">[in_dtPaymentInstruction]</InArgument>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_strMultipleRangeRequestNumber">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strRequestNumber" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_strMultipleRangeStatusCheck">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strSingleOrMultipleRangeStatusCheck" />
+            </OutArgument>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">
+              <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtMain" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnNotedisplayed">
+              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="blnNotedisplayed" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnErrorAccountEntry">
+              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="blnErrorAccountEntry" />
+            </InArgument>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">
+              <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtPaymentInstruction" />
+            </InArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </If.Then>
       <If.Else>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SingleRange workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="WorkFlows\SingleRange.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleRangeRequestNumber">[out_strRequestNumber]</OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleRangeStatusCheck">[out_strSingleOrMultipleRangeOrBackedOutStatusCheck]</OutArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnNotedisplayed">[blnNotedisplayed]</InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnErrorAccountEntry">[blnErrorAccountEntry]</InArgument>
-            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">[in_MasterRow]</InArgument>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleRangeRequestNumber">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strRequestNumber" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleRangeStatusCheck">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strSingleOrMultipleRangeStatusCheck" />
+            </OutArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnNotedisplayed">
+              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="blnNotedisplayed" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_blnErrorAccountEntry">
+              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="blnErrorAccountEntry" />
+            </InArgument>
+            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">
+              <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_MasterRow" />
+            </InArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log - Confirmation Success" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_65" Level="Info" Message="[in_Config(&quot;Log_ConfirmationEntrySuccess&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log - Confirmation Success" sap:VirtualizedContainerService.HintSize="714,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_65" Level="Info" Message="[in_Config(&quot;Log_ConfirmationEntrySuccess&quot;).ToString]" />
   </Sequence>
 </Activity>
