@@ -5,7 +5,7 @@
   "dependencies": {
     "UiPath.Credentials.Activities": "[2.0.0]",
     "UiPath.Excel.Activities": "[2.12.3]",
-    "UiPath.Form.Activities": "[1.9.6]",
+    "UiPath.Form.Activities": "[1.8.0]",
     "UiPath.Mail.Activities": "[1.15.2]",
     "UiPath.System.Activities": "[22.4.1]",
     "UiPath.Testing.Activities": "[22.4.3]",
@@ -88,7 +88,7 @@
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       }
     ],
-    "modernBehavior": false
+    "modernBehavior": true
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
