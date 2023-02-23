@@ -1,0 +1,205 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ConfirmationOrBackOutProcess" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_MasterRow" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_dtMain" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dtPaymentInstruction" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="out_strRequestNumber" Type="OutArgument(x:String)" />
+    <x:Property Name="in_strPaymentInstruction" Type="InArgument(x:String)" />
+    <x:Property Name="in_strProcessType" Type="InArgument(x:String)" />
+    <x:Property Name="in_strAccomplishedDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_strDateSentToTreasury" Type="InArgument(x:String)" />
+    <x:Property Name="in_strReferenceAssignedbyAdmin" Type="InArgument(x:String)" />
+    <x:Property Name="out_strSingleOrMultipleRangeOrBackedOutStatusCheck" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:ConfirmationOrBackOutProcess.in_strPaymentInstruction>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ConfirmationOrBackOutProcess.in_strPaymentInstruction>
+  <this:ConfirmationOrBackOutProcess.in_strProcessType>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ConfirmationOrBackOutProcess.in_strProcessType>
+  <this:ConfirmationOrBackOutProcess.in_strAccomplishedDate>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ConfirmationOrBackOutProcess.in_strAccomplishedDate>
+  <this:ConfirmationOrBackOutProcess.in_strDateSentToTreasury>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ConfirmationOrBackOutProcess.in_strDateSentToTreasury>
+  <this:ConfirmationOrBackOutProcess.in_strReferenceAssignedbyAdmin>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ConfirmationOrBackOutProcess.in_strReferenceAssignedbyAdmin>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>860,744.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ConfirmationOrBackOutProcess_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="1. Check Process Type&#xA;2. Select workflow based on Process Type" DisplayName="ConfirmationOrBackOutProcess" sap:VirtualizedContainerService.HintSize="634,680" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">240,62.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">270,137.166666666667 270,167.166666666667 326.308333333334,167.166666666667 326.308333333334,217.166666666667</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID2</x:Reference>
+    </Flowchart.StartNode>
+    <FlowDecision x:Name="__ReferenceID2" Condition="[in_strProcessType.Contains(in_Config(&quot;ProcessType_Confirm&quot;).ToString)]" DisplayName="ConfirmOrBackOut?" sap:VirtualizedContainerService.HintSize="111.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <av:Point x:Key="ShapeLocation">270.641666666667,217.166666666667</av:Point>
+          <av:Size x:Key="ShapeSize">111.333333333333,86.6666666666667</av:Size>
+          <x:String x:Key="TrueLabel">Confirm</x:String>
+          <x:String x:Key="FalseLabel">BackOut</x:String>
+          <av:PointCollection x:Key="TrueConnector">270.641666666667,260.5 120,260.5 120,353.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="FalseConnector">381.975,260.5 480,260.5 480,473.666666666667</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <FlowDecision.True>
+        <FlowStep x:Name="__ReferenceID0">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">20,353.666666666667</av:Point>
+              <av:Size x:Key="ShapeSize">200,52</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfirmationProcess workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ConfirmationProcess.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strPaymentInstruction">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strPaymentInstruction" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strAccomplishedDate">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strAccomplishedDate" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strRequestNumber">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strRequestNumber" />
+              </OutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMain">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtMain" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPaymentInstruction">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dtPaymentInstruction" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_MasterRow">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_MasterRow" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strSingleOrMultipleRangeStatusCheck">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strSingleOrMultipleRangeOrBackedOutStatusCheck" />
+              </OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </FlowStep>
+      </FlowDecision.True>
+      <FlowDecision.False>
+        <FlowStep x:Name="__ReferenceID1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">380,473.666666666667</av:Point>
+              <av:Size x:Key="ShapeSize">200,52</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke BackOutProcess workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BackOutProcess.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceAssignedbyAdmin">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strReferenceAssignedbyAdmin" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strDateSentToTreasury">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strDateSentToTreasury" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strAccomplishedDate">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strAccomplishedDate" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strBackOutPaymentInstruction">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strPaymentInstruction" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strBackOutRequestNumber">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strRequestNumber" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strBackedOutStatusCheck">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strSingleOrMultipleRangeOrBackedOutStatusCheck" />
+              </OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </FlowStep>
+      </FlowDecision.False>
+    </FlowDecision>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+  </Flowchart>
+</Activity>
