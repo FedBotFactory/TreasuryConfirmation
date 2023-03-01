@@ -113,10 +113,10 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">20,483.666666666667</av:Point>
-              <av:Size x:Key="ShapeSize">200,52.666666666666664</av:Size>
+              <av:Size x:Key="ShapeSize">200,54</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LoginPage workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WorkFlows\LoginPage.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LoginPage workflow" sap:VirtualizedContainerService.HintSize="334,115.33333333333331" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\LoginPage.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -133,11 +133,11 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">370,483.666666666667</av:Point>
-              <av:Size x:Key="ShapeSize">200,52.666666666666664</av:Size>
+              <av:Size x:Key="ShapeSize">200,54</av:Size>
               <av:PointCollection x:Key="ConnectorLocation">370,510 220,510</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteNotSecurePage" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="WorkFlows\SiteNotSecurePage.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteNotSecurePage" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\SiteNotSecurePage.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -161,7 +161,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,197.666666666667 300,256.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Parallel DisplayName="Look for Login Page and Site Not Secure Page" sap:VirtualizedContainerService.HintSize="1217.3333333333333,896" sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <Parallel DisplayName="Look for Login Page and Site Not Secure Page" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="Parallel_1">
         <Parallel.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="blnSiteNotSecurePageDisplayed" />
         </Parallel.Variables>
